@@ -1,6 +1,6 @@
 from six import python_2_unicode_compatible
 from .base import QuickbooksBaseObject, Ref, CustomField, Address, EmailAddress, CustomerMemo, QuickbooksManagedObject, \
-    QuickbooksTransactionEntity, LinkedTxn, LinkedTxnMixin
+    QuickbooksTransactionEntity, LinkedTxn, LinkedTxnMixin, MetaData
 from .tax import TxnTaxDetail
 from .detailline import DetailLine, SalesItemLine, SubtotalLine, DiscountLine, GroupLine, DescriptionOnlyLine
 from ..mixins import QuickbooksPdfDownloadable, DeleteMixin, SendMixin
@@ -34,7 +34,8 @@ class Invoice(DeleteMixin, QuickbooksPdfDownloadable, QuickbooksManagedObject, Q
         "TxnTaxDetail": TxnTaxDetail,
         "BillEmail": EmailAddress,
         "CustomerMemo": CustomerMemo,
-        "DeliveryInfo": DeliveryInfo
+        "DeliveryInfo": DeliveryInfo,
+        "MetaData": MetaData
     }
 
     list_dict = {
@@ -82,6 +83,7 @@ class Invoice(DeleteMixin, QuickbooksPdfDownloadable, QuickbooksManagedObject, Q
         self.DepartmentRef = None
         self.TxnTaxDetail = None
         self.DeliveryInfo = None
+        self.MetaData = None
 
         self.CustomField = []
         self.Line = []

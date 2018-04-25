@@ -44,6 +44,10 @@ class FromJsonMixinTest(unittest.TestCase):
                     }
                 },
             ],
+            "MetaData": {
+                "CreateTime": "2015-06-29T12:33:57-07:00",
+                "LastUpdatedTime": "2015-06-29T12:33:57-07:00"
+            },
         }
 
     def test_from_json(self):
@@ -53,6 +57,8 @@ class FromJsonMixinTest(unittest.TestCase):
         self.assertEquals(type(new_obj), JournalEntry)
         self.assertEquals(new_obj.DocNumber, "123")
         self.assertEquals(new_obj.TotalAmt, 100)
+        self.assertEquals(new_obj.MetaData.CreateTime, "2015-06-29T12:33:57-07:00")
+        self.assertEquals(new_obj.MetaData.LastUpdatedTime, "2015-06-29T12:33:57-07:00")
 
         line = new_obj.Line[0]
         self.assertEquals(type(line), JournalEntryLine)

@@ -1,6 +1,6 @@
 from six import python_2_unicode_compatible
 from .base import QuickbooksBaseObject, Ref, QuickbooksManagedObject, QuickbooksTransactionEntity, \
-    LinkedTxnMixin
+    LinkedTxnMixin, MetaData
 from .tax import TxnTaxDetail
 from .detailline import DetailLine, DescriptionOnlyLine
 from ..mixins import DeleteMixin
@@ -66,6 +66,7 @@ class JournalEntry(DeleteMixin, QuickbooksManagedObject, QuickbooksTransactionEn
     class_dict = {
         "TxnTaxDetail": TxnTaxDetail,
         "CurrencyRef": Ref,
+        "MetaData": MetaData
     }
 
     list_dict = {
@@ -90,6 +91,7 @@ class JournalEntry(DeleteMixin, QuickbooksManagedObject, QuickbooksTransactionEn
         self.ExchangeRate = 1
         self.Line = []
         self.TxnTaxDetail = None
+        self.MetaData = None
 
         self.CurrencyRef = None
 
