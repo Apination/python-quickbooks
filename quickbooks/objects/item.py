@@ -1,5 +1,5 @@
 from six import python_2_unicode_compatible
-from .base import Ref, QuickbooksManagedObject, QuickbooksTransactionEntity
+from .base import Ref, QuickbooksManagedObject, QuickbooksTransactionEntity, MetaData
 
 
 @python_2_unicode_compatible
@@ -27,6 +27,7 @@ class Item(QuickbooksManagedObject, QuickbooksTransactionEntity):
         "ParentRef": Ref,
         "SalesTaxCodeRef": Ref,
         "PurchaseTaxCodeRef": Ref,
+        "MetaData": MetaData,
     }
 
     qbo_object_name = "Item"
