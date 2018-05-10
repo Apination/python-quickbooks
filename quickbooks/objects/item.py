@@ -67,6 +67,8 @@ class Item(QuickbooksManagedObject, QuickbooksTransactionEntity):
         # These fields are for minor version 4
         self.Sku = None
 
+        self.MetaData = None
+
     def __str__(self):
         return self.Name
 
