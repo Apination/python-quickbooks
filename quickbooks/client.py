@@ -243,11 +243,11 @@ class QuickBooks(object):
             message = error["Message"]
 
             detail = ""
-            if "Detail" in error:
+            if "Detail" in error and error["Detail"] != 'null':
                 detail = error["Detail"]
 
-            code = ""
-            if "code" in error:
+            code = 0
+            if "code" in error and error["code"] != 'null':
                 code = int(error["code"])
 
             if code >= 10000:
